@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:instagram/widgets/home_page.dart';
+// import 'package:instagram/widgets/home_page.dart';
 import 'package:instagram/widgets/test.dart';
+// import 'package:instagram/widgets/home_page.dart';
 
 void main() {
   runApp(const MyApp());
