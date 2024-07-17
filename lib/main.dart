@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:instagram/widgets/home_page.dart';
-import 'package:instagram/widgets/test.dart';
-// import 'package:instagram/widgets/home_page.dart';
+import 'package:instagram/routes/instagram_routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,13 +11,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Instagram",
+      title: "Instagram clone",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.red,
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Test(),
+      onGenerateRoute: InstagramRoutes.generateRoute,
+      initialRoute: InstagramRouteNames.splash,
+      // home: const HomePage(),
     );
   }
 }

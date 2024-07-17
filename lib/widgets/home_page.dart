@@ -1,22 +1,16 @@
+import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:instagram/mocks/instagram_data.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // double radiuc = 120;
-    // double numberOfStores = 3;
-    // double emptyPartOfBorder = 5;
-    // double padding = 10;
-    // double borderLong = (2 * pi * (radiuc + padding) - emptyPartOfBorder * numberOfStores) / numberOfStores;
-
     return Scaffold(
       appBar: AppBar(
-          title: const Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+        title: const Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
             SizedBox(
               width: 240,
               child: Row(
@@ -37,41 +31,70 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             )
-          ])),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 4.0),
-        child: Column(
-          children: [
-            const Divider(color: Colors.black26),
-            SizedBox(
-              height: MediaQuery.of(context).size.height * 0.11,
-              child: ListView.builder(
-                itemCount: InstagramData.image.length,
-                scrollDirection: Axis.horizontal,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 5),
-                    child: Column(
-                      children: [
-                        CircleAvatar(
-                          radius: 45,
-                          backgroundImage: AssetImage(
-                              "assets/images/${InstagramData.image[index]}.jpg"),
-                        ),
-                        Text(InstagramData.image[index])
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-            const Divider(color: Colors.black26),
           ],
         ),
+      ),
+      body: Column(
+        // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          const Divider(color: Colors.black26),
+          SizedBox(
+            height: 130,
+            child: ListView.builder(
+              itemCount: 5,
+              scrollDirection: Axis.horizontal,
+              itemBuilder: (context, index) {
+                return Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10.0, top: 4),
+                      child: DottedBorder(
+                        color: Colors.green,
+                        padding: const EdgeInsets.all(6),
+                        strokeWidth: 5,
+                        borderType: BorderType.Circle,
+                        // dashPattern: [1, 0],
+                        child: const CircleAvatar(
+                          radius: 40,
+                          backgroundImage:
+                              AssetImage("assets/images/ferrari.jpg"),
+                          // child: Text(
+                          //   index.toString(),
+                          //   style: const TextStyle(fontSize: 22.0),
+                          // ),
+                        ),
+                      ),
+                    ),
+                    const Text(
+                      "Your story",
+                      style: TextStyle(fontSize: 18),
+                    )
+                  ],
+                );
+              },
+            ),
+          ),
+          const Divider(color: Colors.black26),
+        ],
       ),
     );
   }
 }
+
+/*
+ DottedBorder(
+                            color: const Color.fromRGBO(217, 26, 70, 1),
+                            padding: const EdgeInsets.all(5),
+                            strokeWidth: 4,
+                            borderType: BorderType.Circle,
+                            dashPattern: const [10, 0],
+                            child: const CircleAvatar(
+                              radius: 40,
+                              backgroundImage:
+                                  AssetImage("assets/images/ferrari.jpg"),
+                            ),
+                          ),
+*/
 
 /*
 Container(
@@ -189,21 +212,3 @@ Container(
 
  */
 
-
-/*
-body: SafeArea(
-        child: Center(
-            child: DottedBorder(
-          color: Colors.green,
-          radius: Radius.circular(180),
-          padding: EdgeInsets.all(padding),
-          strokeWidth: padding,
-          borderType: BorderType.Circle,
-          dashPattern: [borderLong, emptyPartOfBorder],
-          child: CircleAvatar(
-            radius: darius,
-            backgroundImage: AssetImage('asset/images/ferrari.jpg'),
-          ),
-        )),
-      ),
- */

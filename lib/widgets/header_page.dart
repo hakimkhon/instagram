@@ -3,10 +3,10 @@ import 'dart:math';
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:instagram/mocks/mock_data.dart';
-// import 'package:instagram/mocks/instagram_data.dart';
 
-class Test extends StatelessWidget {
-  const Test({super.key});
+class HeaderPage extends StatelessWidget {
+  const HeaderPage({super.key, required this.instagramData});
+  final MockData instagramData;
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +17,7 @@ class Test extends StatelessWidget {
     double borderLong =
         (2 * pi * (radius + padding) - emptyPartOfBorder * numberOfStores) /
             numberOfStores;
-    int index = 4;
-    return Scaffold(
-      body: SafeArea(
-        child: Center(
-            child: DottedBorder(
+    return DottedBorder(
           color: const Color.fromRGBO(166, 15, 147, 1),
           radius: Radius.circular(radius),
           padding: EdgeInsets.all(padding),
@@ -31,10 +27,8 @@ class Test extends StatelessWidget {
           child: CircleAvatar(
             radius: radius,
             backgroundImage: AssetImage(
-                'assets/images/${MockData.instagram[index].image}.jpg'),
+                'assets/images/${MockData.instagram[3].image}.jpg'),
           ),
-        )),
-      ),
-    );
+        );
   }
 }
