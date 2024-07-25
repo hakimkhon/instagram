@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:instagram/core/conts/size_const.dart';
 import 'package:instagram/core/resources/resource.dart';
 import 'package:instagram/routes/instagram_routes.dart';
 
@@ -13,8 +14,9 @@ class SplashPage extends StatefulWidget {
 
 class _SplashPageState extends State<SplashPage> {
   bool isAuth = false;
+
   @override
-  Widget build(BuildContext context) {
+  void initState() {
     Timer(
       const Duration(seconds: 2),
       () {
@@ -33,26 +35,45 @@ class _SplashPageState extends State<SplashPage> {
         }
       },
     );
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // title: const Text("splash page"),
-          ),
+      // appBar: AppBar(
+      //     // title: const Text("splash page"),
+      //     ),
       body: Column(
         children: [
-          Expanded(
+          const Expanded(
             flex: 2,
+            child: SizedBox(),
+          ),
+          Expanded(
+            flex: 8,
             child: Center(
-              child: Image(height: MediaQuery.of(context).size.height*0.1, 
-              image: const AssetImage(ImageAssets.instagramLogo)),
+              child: Image(
+                height: SizeConst.height(15, context),
+                image: const AssetImage(ImageAssets.instagramLogo),
+              ),
             ),
           ),
-          const Expanded(
+          Expanded(
             flex: 2,
-            child: SizedBox(),
-          ),
-          const Expanded(
-            flex: 2,
-            child: SizedBox(),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text(
+                  "from",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                ),
+                Image(
+                  image: const AssetImage(ImageAssets.metaLogo),
+                  height: SizeConst.height(6, context),
+                ),
+              ],
+            ),
           ),
         ],
       ),

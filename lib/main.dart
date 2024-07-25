@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: "Instagram clone",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 3, 1, 28)),
         useMaterial3: true,
       ),
       onGenerateRoute: InstagramRoutes.generateRoute,
