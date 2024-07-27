@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:instagram/core/conts/size_const.dart';
-import 'package:instagram/core/resources/resource.dart';
-import 'package:instagram/routes/instagram_routes.dart';
-import 'package:instagram/screens/auth/widgets/log_in_button.dart';
 import 'package:instagram/screens/auth/widgets/signin_body.dart';
 import 'package:instagram/screens/auth/widgets/signin_footer.dart';
 
@@ -25,7 +22,7 @@ class SingInPage extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: SizeConst.width(6, context)),
-                child: SigninBody(),
+                child: const SigninBody(),
               ),
             ),
             const Expanded(flex: 1, child: SigninFooter()),

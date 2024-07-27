@@ -20,9 +20,10 @@ class SigninFooter extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                Navigator.pushNamed(
+                Navigator.pushNamedAndRemoveUntil(
                   context,
                   InstagramRouteNames.singUp,
+                  (Route<dynamic> roote) => false,
                 );
               },
               child: const Text(

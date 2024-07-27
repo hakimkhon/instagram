@@ -5,22 +5,18 @@ import 'package:zoom_tap_animation/zoom_tap_animation.dart';
 class LogInButton extends StatelessWidget {
   const LogInButton({
     super.key,
-    required this.title,
-    this.opacity = 1,
-    this.hightSize = 7,
-    this.marginTop = 20,
-    this.marginBottom = 50,
-    this.color = Colors.blue,
+    required this.text,
     this.colorText = Colors.white,
+    this.containerOpacity = 1,
+    this.borderOpacity = 1,
+    this.hightSize = 7,
     this.fontSize = 22,
     required this.onTap,
   });
-  final String title;
-  final double opacity;
+  final String text;
+  final double containerOpacity;
+  final double borderOpacity;
   final double hightSize;
-  final double marginTop;
-  final double marginBottom;
-  final Color color;
   final Color colorText;
   final double fontSize;
   final Function onTap;
@@ -33,14 +29,14 @@ class LogInButton extends StatelessWidget {
       },
       child: Container(
         height: SizeConst.height(hightSize, context),
-        margin: EdgeInsets.only(top: marginTop, bottom: marginBottom),
         decoration: BoxDecoration(
-          color: color.withOpacity(opacity),
-          borderRadius: BorderRadius.circular(12),
+          color: Colors.blue.withOpacity(containerOpacity),
+          borderRadius: BorderRadius.circular(10),
+          border: Border.all(color: Colors.black.withOpacity(borderOpacity)),
         ),
         child: Center(
           child: Text(
-            title,
+            text,
             style: TextStyle(
                 fontWeight: FontWeight.w500,
                 fontSize: fontSize,
