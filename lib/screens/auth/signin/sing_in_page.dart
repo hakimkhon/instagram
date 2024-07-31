@@ -10,6 +10,7 @@ class SingInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
+        // bottom: false,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -13,134 +13,137 @@ class SingUpPage extends StatelessWidget {
       appBar: AppBar(
           // title: const Text("Sing Up page"),
           ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Expanded(flex: 1, child: SizedBox()),
-          Expanded(
-            flex: 7,
-            child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                children: [
-                  const Center(
-                    child: Image(image: AssetImage(ImageAssets.insSingUp)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: SizeConst.height(4, context)),
-                    child: customContainer("user name", context),
-                  ),
-                  customContainer("Password", context),
-                  Container(
-                    alignment: Alignment.centerRight,
-                    padding: EdgeInsets.only(
-                        top: SizeConst.height(1, context),
-                        bottom: SizeConst.height(4, context)),
-                    width: SizeConst.width(100, context),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Forget password?",
-                        style: TextStyle(
-                          color: Colors.blue,
-                          fontSize: 18,
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Expanded(flex: 1, child: SizedBox()),
+            Expanded(
+              flex: 7,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10.0),
+                child: Column(
+                  children: [
+                    const Center(
+                      child: Image(image: AssetImage(ImageAssets.insSingUp)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: SizeConst.height(4, context)),
+                      child: customContainer("user name", context),
+                    ),
+                    customContainer("Password", context),
+                    Container(
+                      alignment: Alignment.centerRight,
+                      padding: EdgeInsets.only(
+                          top: SizeConst.height(1, context),
+                          bottom: SizeConst.height(4, context)),
+                      width: SizeConst.width(100, context),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          "Forget password?",
+                          style: TextStyle(
+                            color: Colors.blue,
+                            fontSize: 18,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  LogInButton(
-                    onTap: () {},
-                    text: "Log in",
-                    containerOpacity: 0.6,
-                    borderOpacity: 0,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: SizeConst.height(5, context)),
-                    child: const Row(
+                    LogInButton(
+                      onTap: () {},
+                      text: "Log in",
+                      containerOpacity: 0.6,
+                      borderOpacity: 0,
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: SizeConst.height(5, context)),
+                      child: const Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Icon(
+                            Icons.facebook_sharp,
+                            color: Colors.blue,
+                            size: 26,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            "Log in with Facebook",
+                            style: TextStyle(color: Colors.blue, fontSize: 17),
+                          )
+                        ],
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.symmetric(vertical: 20),
+                      child: Row(
+                        children: [
+                          Expanded(
+                            flex: 4,
+                            child: Divider(
+                              color: Colors.black26,
+                            ),
+                          ),
+                          Expanded(
+                              flex: 2,
+                              child: Text(
+                                "OR",
+                                style: TextStyle(color: Colors.black38),
+                                textAlign: TextAlign.center,
+                              )),
+                          Expanded(
+                            flex: 4,
+                            child: Divider(
+                              color: Colors.black26,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Icon(
-                          Icons.facebook_sharp,
-                          color: Colors.blue,
-                          size: 26,
+                        const Text(
+                          "Don’t have an accoun?",
+                          style: TextStyle(color: Colors.black45, fontSize: 16),
                         ),
-                        SizedBox(width: 10),
-                        Text(
-                          "Log in with Facebook",
-                          style: TextStyle(color: Colors.blue, fontSize: 17),
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pushNamed(
+                              context,
+                              InstagramRouteNames.singIn,
+                            );
+                          },
+                          child: const Text(
+                            "Log in",
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 16),
+                          ),
                         )
                       ],
                     ),
-                  ),
-                  const Padding(
-                    padding: EdgeInsets.symmetric(vertical: 20),
-                    child: Row(
-                      children: [
-                        Expanded(
-                          flex: 4,
-                          child: Divider(
-                            color: Colors.black26,
-                          ),
-                        ),
-                        Expanded(
-                            flex: 2,
-                            child: Text(
-                              "OR",
-                              style: TextStyle(color: Colors.black38),
-                              textAlign: TextAlign.center,
-                            )),
-                        Expanded(
-                          flex: 4,
-                          child: Divider(
-                            color: Colors.black26,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const Text(
-                        "Don’t have an accoun?",
-                        style: TextStyle(color: Colors.black45, fontSize: 16),
-                      ),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.pushNamed(
-                            context,
-                            InstagramRouteNames.singIn,
-                          );
-                        },
-                        child: const Text(
-                          "Log in",
-                          style: TextStyle(
-                              fontWeight: FontWeight.bold, fontSize: 16),
-                        ),
-                      )
-                    ],
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          Expanded(
-              flex: 1,
-              child: Column(
-                children: [
-                  const Divider(
-                    color: Colors.black26,
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: SizeConst.height(2, context)),
-                    child: const Text(
-                      "Instagram or Facebook",
-                      style: TextStyle(color: Colors.black45, fontSize: 14),
+            Expanded(
+                flex: 1,
+                child: Column(
+                  children: [
+                    const Divider(
+                      color: Colors.black26,
                     ),
-                  ),
-                ],
-              )),
-        ],
+                    Padding(
+                      padding: EdgeInsets.only(top: SizeConst.height(2, context)),
+                      child: const Text(
+                        "Instagram or Facebook",
+                        style: TextStyle(color: Colors.black45, fontSize: 14),
+                      ),
+                    ),
+                  ],
+                )),
+          ],
+        ),
       ),
     );
   }
